@@ -4,14 +4,17 @@ import matplotlib.pyplot as plt
 
 # Plotting function
 
-def save_plots(stats_dict):
+def save_plots(stats_dict, folder):
+    # Parent directory
+    parent_dir = os.path.join('Summary-Data', folder)
+
     # First, create the parent folder if it doesn't exist
-    if not os.path.exists('Summary-Data'):
-        os.makedirs('Summary-Data')
+    if not os.path.exists(parent_dir):
+        os.makedirs(parent_dir)
 
     for name, stats in stats_dict.items():
-        # Create a folder for each feature within the Summary-Data folder
-        folder_path = os.path.join('Summary-Data', name)
+        # Create a folder for each feature within the Summary-Data/All-Countries folder
+        folder_path = os.path.join(parent_dir, name)
         if not os.path.exists(folder_path):
             os.makedirs(folder_path)
 
